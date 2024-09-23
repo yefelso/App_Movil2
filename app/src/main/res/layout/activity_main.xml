@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Entrada de Monto -->
+    <EditText
+        android:id="@+id/edittext_amount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Amount"
+        android:inputType="numberDecimal"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginTop="40dp" />
+
+    <!-- Selección de Moneda Base -->
+    <Spinner
+        android:id="@+id/spinner_base_currency"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:entries="@array/currencies"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edittext_amount"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <!-- Botón para Obtener Tasa de Cambio -->
+    <Button
+        android:id="@+id/button_get_rates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/brown"
+        android:text="Get Rates"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinner_base_currency" />
+
+    <!-- Tabla para Mostrar Conversión -->
+    <TableLayout
+        android:id="@+id/table_conversion_rates"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:stretchColumns="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_get_rates">
+
+        <!-- Encabezados de la Tabla -->
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Currency"
+                android:textStyle="bold"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amount"
+                android:textStyle="bold"
+                android:padding="10dp" />
+        </TableRow>
+
+        <!-- Ejemplo de Fila (puedes generar más filas dinámicamente en el código) -->
+        <TableRow>
+            <TextView
+                android:id="@+id/textview_currency_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="USD"
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/textview_amount_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:padding="10dp" />
+        </TableRow>
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
